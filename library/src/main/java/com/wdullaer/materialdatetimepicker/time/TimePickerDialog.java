@@ -26,14 +26,6 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
-import androidx.annotation.ColorInt;
-import androidx.annotation.IntRange;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
-import androidx.appcompat.app.AppCompatDialogFragment;
-import androidx.core.content.ContextCompat;
-import androidx.core.content.res.ResourcesCompat;
 import android.util.Log;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
@@ -46,10 +38,18 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.ColorInt;
+import androidx.annotation.IntRange;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
+import androidx.appcompat.app.AppCompatDialogFragment;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
+
 import com.wdullaer.materialdatetimepicker.HapticFeedbackController;
 import com.wdullaer.materialdatetimepicker.R;
 import com.wdullaer.materialdatetimepicker.Utils;
-import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import com.wdullaer.materialdatetimepicker.time.RadialPickerLayout.OnValueSelectedListener;
 
 import java.text.DateFormatSymbols;
@@ -114,7 +114,7 @@ public class TimePickerDialog extends AppCompatDialogFragment implements
 
     private HapticFeedbackController mHapticFeedbackController;
 
-    private Button mCancelButton;
+//    private Button mCancelButton;
     private Button mOkButton;
     private TextView mHourView;
     private TextView mHourSpaceView;
@@ -796,19 +796,19 @@ public class TimePickerDialog extends AppCompatDialogFragment implements
         if(mOkString != null) mOkButton.setText(mOkString);
         else mOkButton.setText(mOkResid);
 
-        mCancelButton = view.findViewById(R.id.mdtp_cancel);
-        mCancelButton.setOnClickListener(v -> {
-            tryVibrate();
-            if (getDialog() != null) getDialog().cancel();
-        });
-        if(font==null) {
-            mCancelButton.setTypeface(ResourcesCompat.getFont(context, R.font.robotomedium));
-        }else{
-            mCancelButton.setTypeface(font);
-        }
-        if(mCancelString != null) mCancelButton.setText(mCancelString);
-        else mCancelButton.setText(mCancelResid);
-        mCancelButton.setVisibility(isCancelable() ? View.VISIBLE : View.GONE);
+//        mCancelButton = view.findViewById(R.id.mdtp_cancel);
+//        mCancelButton.setOnClickListener(v -> {
+//            tryVibrate();
+//            if (getDialog() != null) getDialog().cancel();
+//        });
+//        if(font==null) {
+//            mCancelButton.setTypeface(ResourcesCompat.getFont(context, R.font.robotomedium));
+//        }else{
+//            mCancelButton.setTypeface(font);
+//        }
+//        if(mCancelString != null) mCancelButton.setText(mCancelString);
+//        else mCancelButton.setText(mCancelResid);
+//        mCancelButton.setVisibility(isCancelable() ? View.VISIBLE : View.GONE);
 
         // Enable or disable the AM/PM view.
         if (mIs24HourMode) {
@@ -1027,7 +1027,7 @@ public class TimePickerDialog extends AppCompatDialogFragment implements
         if (mOkColor == null) mOkColor = mAccentColor;
         mOkButton.setTextColor(mOkColor);
         if (mCancelColor == null) mCancelColor = mAccentColor;
-        mCancelButton.setTextColor(mCancelColor);
+//        mCancelButton.setTextColor(mCancelColor);
 
         if(getDialog() == null) {
             view.findViewById(R.id.mdtp_done_background).setVisibility(View.GONE);

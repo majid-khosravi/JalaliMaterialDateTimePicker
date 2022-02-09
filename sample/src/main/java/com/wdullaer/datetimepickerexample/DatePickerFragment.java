@@ -130,16 +130,17 @@ public class DatePickerFragment extends Fragment implements DatePickerDialog.OnD
             }
 
             if (dpd == null) {
-                dpd = DatePickerDialog.newInstance(
+                dpd = DatePickerDialog.newInstance(getActivity(),
                         calendarType,
                         DatePickerFragment.this,
                         now.get(Calendar.YEAR),
                         now.get(Calendar.MONTH),
                         now.get(Calendar.DAY_OF_MONTH)
                 );
-            } else {
+            }
+            else {
                 dpd.setCalendarType(calendarType);
-                dpd.initialize(
+                dpd.initialize(getActivity(),
                         DatePickerFragment.this,
                         now.get(Calendar.YEAR),
                         now.get(Calendar.MONTH),
